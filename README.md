@@ -6,4 +6,5 @@ This is a documentation of Controlling Three Wheeled Omnidirectional Mobile Robo
 ![WhatsApp Image 2024-05-07 at 17 25 49_dee94b2c](https://github.com/user-attachments/assets/2314d9c6-298e-4bae-92cd-adabcb910e99)
 
 # 3D Visualization
-![KRAI Gajah 3 v13_1](https://github.com/user-attachments/assets/23c3e956-83a1-478b-ab06-d1210e66438b)
+![KRAI Gajah 3 v13_1](https://github.com/user-attachments/assets/95f320dc-e734-4a09-85be-c2b1ac201839)
+![WhatsApp Image 2024-11-22 at 18 24 57_68995b9a](https://github.com/user-attachments/assets/1c779729-8079-4aae-9140-b9980982d660)
