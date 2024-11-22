@@ -1,3 +1,7 @@
+# Introduction
+This is a development project, research about kinematic of Three-wheeled omnidirectional mobile robot and wheel odometry. The kinematic is better to apply, good to make trajectory system by using inverse kinematics. I try wheel odometry for robot position control and it's still experimental. I'm not sure if it is worth, but if you want to develop it I prefer you to setup additional encoder for only measure robot position.
+I use STM32CubeIDE to program NUCLEO-G491RE and ArduinoIDE to program ESP32.
+
 # Basic Theory
 ![image (4)](https://github.com/user-attachments/assets/35bd8398-e8ee-434a-9269-5d4dd010372f)
 ![image (5)](https://github.com/user-attachments/assets/14456823-caf9-4228-892d-b60d82aae46d)
