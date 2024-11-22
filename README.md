@@ -96,3 +96,6 @@ The distance between the center point of the robot to the center point of each w
 # Additional Feature: Position Control System
 The position robot can be controlled by using wheel odometry. Wheel odometry can be obtained from from kinematic equation                                                               
 ![WhatsApp Image 2024-07-18 at 16 58 15_7dd97819](https://github.com/user-attachments/assets/67050ef1-4a5e-4da8-aa99-b3fa5bd094d6)
+
+# User Interface
+You can choose remote mode or autonomous mode for test wheel odometry control. If you choose remote mode, you need to connect robot with Joystick PS3 and then you can drive the robot. In autonomous mode you can setup the X,Y target position and run the robot drive to target.
