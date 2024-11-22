@@ -4,12 +4,44 @@ This is a documentation of Controlling Three Wheeled Omnidirectional Mobile Robo
 # Basic Theory
 ![image (4)](https://github.com/user-attachments/assets/35bd8398-e8ee-434a-9269-5d4dd010372f)
 ![image (5)](https://github.com/user-attachments/assets/14456823-caf9-4228-892d-b60d82aae46d)
+
+Forward Kinematic
+
 ![image (6)](https://github.com/user-attachments/assets/1da19131-9193-4970-ad7a-ac36eb17e5b5)
+
+Inverse Kinematic
+
 ![image (7)](https://github.com/user-attachments/assets/1e243339-b0f2-4206-9d8d-1014f24f821b)
 
 # Electrical Schematic
 ![Schematic](https://github.com/user-attachments/assets/23adb82b-1ca0-4184-ae98-45fd43e70b9c)
+
+The picture shown below is the prototype of electrical system
+
 ![WhatsApp Image 2024-05-07 at 17 25 49_dee94b2c](https://github.com/user-attachments/assets/2314d9c6-298e-4bae-92cd-adabcb910e99)
+
+# STM32CubeMx Setup
+All pinout setup shown below
+![image (8)](https://github.com/user-attachments/assets/82a144be-df54-493e-9d8d-711106622054)
+
+Timer 1, Timer 2, and Timer 8 is used to encoder mode. The timer settings is shown below
+![image (9)](https://github.com/user-attachments/assets/ed58228f-09f3-4f57-8102-966245911442)
+
+Timer 3, Timer 4, and Timer 15 is used to be timer slave with Timer 1, Timer 2, and Timer 8.
+The master-slave timer can be applied by using timer interconnection by ITR Register
+![image (10)](https://github.com/user-attachments/assets/6b5d5fb4-f1aa-45d7-9537-ac831202e269)
+
+The timer pairs that can be used as master and slave are as follows :
+
+TIM1->TIM3 (ITR0)
+
+TIM2->TIM4 (ITR1)
+
+TIM8->TIM15 (ITR5)
+
+The timer setting is shown below
+
+![image (11)](https://github.com/user-attachments/assets/d8a0f68f-4874-4977-9de2-bf0eddfebb91)
 
 # 3D Visualization
 ![KRAI Gajah 3 v13_1](https://github.com/user-attachments/assets/95f320dc-e734-4a09-85be-c2b1ac201839)
