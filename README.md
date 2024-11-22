@@ -1,6 +1,3 @@
-# 3WD_OmniWheel_MobileRobot
-This is a documentation of Control System Three Wheeled Omnidirectional Mobile Robot. Developed by fajarnugrahap
-
 # Basic Theory
 ![image (4)](https://github.com/user-attachments/assets/35bd8398-e8ee-434a-9269-5d4dd010372f)
 ![image (5)](https://github.com/user-attachments/assets/14456823-caf9-4228-892d-b60d82aae46d)
