@@ -20,8 +20,4 @@ void Mback(int rpm3,int dir3);
 
 void Mright(int rpm2,int dir2);
 
-void inverse_odometry (float xpos, float ypos, float thetapos);
-
-void set_speeds2(float x_speed,float y_speed,float w_speed);
-
 #endif /* INC_USER_H_ */
