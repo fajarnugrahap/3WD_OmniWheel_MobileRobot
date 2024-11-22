@@ -374,31 +374,7 @@ void lcd_display_1 (void){
 		lcd_send_string("Connected!");
 		HAL_Delay(1000);
 
-		lcd_send_cmd (0x80|0x00);
-		lcd_send_string("Pos X : ");
-
-		sprintf(x_buffer, "%li", mb);
-		lcd_send_cmd (0x80|0x0B);
-		lcd_send_string(x_buffer);
-
-		lcd_send_cmd (0x80|0x40);
-		lcd_send_string("Pos Y : ");
-
-		sprintf(y_buffer, "%li", ma);
-		lcd_send_cmd (0x80|0x4B);
-		lcd_send_string(y_buffer);
-
 		remote_mode1();
-
-		if(B1 == 1){
-			ma = 0;
-			mb = 0;
-			tim1_cnt = 0;
-			tim2_cnt = 0;
-			tim8_cnt = 0;
-		}
-		else{
-		}
 	}
 
 	if (menu == 21){
@@ -616,68 +592,6 @@ void lcd_display (void){ //Use for monitoring position
 	lcd_send_string(speed_buffer);
 }
 
-void remote_mode(void){
-	if (data_received) {
-		// Check if the received data is the expected command
-		while(rx_buffer[0]==12 && rx_buffer[1] == 24 && rx_buffer[2] == 36 && rx_buffer[3] == 255 && rx_buffer[4] == 128 && rx_buffer[5] == 255) {
-			set_speeds(0,70,0);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
-			// Toggle LED
-			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-			//HAL_Delay(100);  // Delay for half a second
-		}
-
-		while(rx_buffer[0]==12 && rx_buffer[1] == 24 && rx_buffer[2] == 36 && rx_buffer[3] == 255 && rx_buffer[4] == 127 && rx_buffer[5] == 255) {
-			set_speeds(0,-70,0);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
-			// Toggle LED
-			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-			//HAL_Delay(300);  // Delay for half a second
-		}
-
-		while(rx_buffer[0]==12 && rx_buffer[1] == 24 && rx_buffer[2] == 36 && rx_buffer[3] == 127 && rx_buffer[4] == 255 && rx_buffer[5] == 255) {
-			set_speeds(70,0,0);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
-			// Toggle LED
-			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-			//HAL_Delay(500);  // Delay for half a second
-		}
-
-		while(rx_buffer[0]==12 && rx_buffer[1] == 24 && rx_buffer[2] == 36 && rx_buffer[3] == 128 && rx_buffer[4] == 255 && rx_buffer[5] == 255) {
-			set_speeds(-70,0,0);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
-			// Toggle LED
-			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-			//HAL_Delay(700);  // Delay for half a second
-		}
-
-		while(rx_buffer[0]==12 && rx_buffer[1] == 24 && rx_buffer[2] == 36 && rx_buffer[3] == 255 && rx_buffer[4] == 255 && rx_buffer[5] == 127) {
-			set_speeds(0,0,3);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
-			// Toggle LED
-			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-			//HAL_Delay(700);  // Delay for half a second
-		}
-
-		while(rx_buffer[0]==12 && rx_buffer[1] == 24 && rx_buffer[2] == 36 && rx_buffer[3] == 255 && rx_buffer[4] == 255 && rx_buffer[5] == 128) {
-			set_speeds(0,0,-3);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
-			// Toggle LED
-			//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-			//HAL_Delay(700);  // Delay for half a second
-		}
-
-		while(rx_buffer[0]==12 && rx_buffer[1] == 24 && rx_buffer[2] == 36 && rx_buffer[3] == 255 && rx_buffer[4] == 255 && rx_buffer[5] == 255) {
-			set_speeds(0,0,0);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, RESET);
-		}
-
-		// Reset flag and clear buffer
-		data_received = 0;
-		memset(rx_buffer, 0, sizeof(rx_buffer));
-	}
-}
-
 void remote_mode1(void){
 	while(rx_buffer[0]==12 && rx_buffer[1] == 24 && rx_buffer[2] == 36 && rx_buffer[3] == 255 && rx_buffer[4] == 128 && rx_buffer[5] == 255) {
 		set_speeds(0,70,0);
@@ -757,29 +671,6 @@ void set_speeds(float x_speed,float y_speed,float w_speed){
 	Mleft(pwm1,d1);
 	Mright(pwm2,d2);
 	Mback(pwm3,d3);
-}
-
-void set_speeds2(float x_speed,float y_speed,float w_speed){
-	a = cos(deg2rad(0)); 	b = sin(deg2rad(0));	c = L;
-	d = cos(deg2rad(120)); 	e = sin(deg2rad(120)); 	f = L;
-	g = cos(deg2rad(240));  h = sin(deg2rad(240));  i = L;
-
-	pwm_mtr1 = (a*x_speed + b*y_speed + c*w_speed)/r;
-	pwm_mtr2 = (d*x_speed + e*y_speed + f*w_speed)/r;
-	pwm_mtr3 = (g*x_speed + h*y_speed + i*w_speed)/r;
-	d1 = 0;
-	d2 = 0;
-	d3 = 0;
-	d1 = pwm_mtr1 < 0 ? -1 : 1;
-	d2 = pwm_mtr2 < 0 ? -1 : 1;
-	d3 = pwm_mtr3 < 0 ? -1 : 1;
-	pwm1=(int)pwm_mtr1; //kecepatan motor depan
-	pwm2=(int)pwm_mtr2; //kecepatan motor kiri
-	pwm3=(int)pwm_mtr3; //kecepatan motor kanan
-
-	Mleft(pwm2,d2);
-	Mright(pwm3,d3);
-	Mback(pwm1,d1);
 }
 
 void Mleft(int rpm1,int dir1){
@@ -998,7 +889,7 @@ void odometryv2 (void){
 //	mtheta = mc;
 }
 
-void set_target (int max_speed, int x_target, int y_target, int theta_target){
+void set_target (int max_speed, int x_target, int y_target, int theta_target){ //Experimental
 	while (x_target == 0 && y_target == 100 && theta_target == 0){ // kontrol posisi Y 100
 		error_y = y_target - ma;
 		p_y = kp*error_y;
@@ -2318,7 +2209,6 @@ void task_1_function(void *argument)
   for(;;)
   {
 //	  odometry();
-//	  inverse_odometry(0, 100, 0);
 	  odometryv2();
 //	  Mleft(18, -1);
 //	  Mright(18, -1);
@@ -2341,12 +2231,9 @@ void task_2_function(void *argument)
   /* Infinite loop */
   for(;;)
   {
-//	  wheelKiri();
-//	  remote_mode();
+//	  remote_mode1();
 //	  set_target(50, 100, 200, 0);
-//	  lcd_display();
 	  lcd_display_1();
-//	  set_targetv2(0, 100, 0);
 	  osDelay(1);
   }
   /* USER CODE END task_2_function */
@@ -2365,12 +2252,10 @@ void task_3_function(void *argument)
   /* Infinite loop */
   for(;;)
   {
-//	  wheelKanan();
-//	  lcd_display();
-//	  while(rx_buffer[0]!=12 && rx_buffer[1]!=24 && rx_buffer[2]!=36){
-//		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, RESET);
-//		  NVIC_SystemReset();
-//	  }
+	  while(rx_buffer[0]!=12 && rx_buffer[1]!=24 && rx_buffer[2]!=36){
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, RESET);
+		  NVIC_SystemReset();
+	  }
 	  osDelay(1);
   }
   /* USER CODE END task_3_function */
