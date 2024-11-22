@@ -94,5 +94,5 @@ The distance between the center point of the robot to the center point of each w
 ![WhatsApp Image 2024-11-22 at 18 24 57_68995b9a](https://github.com/user-attachments/assets/1c779729-8079-4aae-9140-b9980982d660)
 
 # Additional Feature: Position Control System
-The position robot can be controlled by using wheel odometry. I can use wheel odometry from kinematic equation                                                               
+The position robot can be controlled by using wheel odometry. Wheel odometry can be obtained from from kinematic equation                                                               
 ![WhatsApp Image 2024-07-18 at 16 58 15_7dd97819](https://github.com/user-attachments/assets/67050ef1-4a5e-4da8-aa99-b3fa5bd094d6)
