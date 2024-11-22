@@ -1,6 +1,12 @@
 # 3WD_OmniWheel_MobileRobot
 This is a documentation of Controlling Three Wheeled Omnidirectional Mobile Robot. Developed by fajarnugrahap
 
+# Basic Theory
+![image (4)](https://github.com/user-attachments/assets/35bd8398-e8ee-434a-9269-5d4dd010372f)
+![image (5)](https://github.com/user-attachments/assets/14456823-caf9-4228-892d-b60d82aae46d)
+![image (6)](https://github.com/user-attachments/assets/1da19131-9193-4970-ad7a-ac36eb17e5b5)
+![image (7)](https://github.com/user-attachments/assets/1e243339-b0f2-4206-9d8d-1014f24f821b)
+
 # Electrical Schematic
 ![Schematic](https://github.com/user-attachments/assets/23adb82b-1ca0-4184-ae98-45fd43e70b9c)
 ![WhatsApp Image 2024-05-07 at 17 25 49_dee94b2c](https://github.com/user-attachments/assets/2314d9c6-298e-4bae-92cd-adabcb910e99)
@@ -8,3 +14,6 @@ This is a documentation of Controlling Three Wheeled Omnidirectional Mobile Robo
 # 3D Visualization
 ![KRAI Gajah 3 v13_1](https://github.com/user-attachments/assets/95f320dc-e734-4a09-85be-c2b1ac201839)
 ![WhatsApp Image 2024-11-22 at 18 24 57_68995b9a](https://github.com/user-attachments/assets/1c779729-8079-4aae-9140-b9980982d660)
+
+# Position Control System
+![WhatsApp Image 2024-07-18 at 16 58 15_7dd97819](https://github.com/user-attachments/assets/67050ef1-4a5e-4da8-aa99-b3fa5bd094d6)
