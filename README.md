@@ -81,6 +81,8 @@ https://www.digikey.com/en/maker/projects/getting-started-with-stm32-introductio
 I use FreeRTOS and make three Task. Task01 for Sensor or Position Calculation. Task02 for actuator. And Task03 is optional task, its used to do STM32 system restart automatically                                                                            
 ![image](https://github.com/user-attachments/assets/6608b4be-e0da-40b0-a4ec-c2ac76446d56)
 
+# ESP32 + PS3 Joystick
+You can use software "Sixaxispairtool" to check or change the mac Address of PS3joystick. You can program your ESP32 to connect the joystick by using Ps3Controller library.
 
 # Electrical Schematic
 ![Schematic](https://github.com/user-attachments/assets/23adb82b-1ca0-4184-ae98-45fd43e70b9c)  
