@@ -83,9 +83,13 @@ I use FreeRTOS and make three Task. Task01 for Sensor or Position Calculation. T
 
 
 # Electrical Schematic
-![Schematic](https://github.com/user-attachments/assets/23adb82b-1ca0-4184-ae98-45fd43e70b9c)                                                                                                 
+![Schematic](https://github.com/user-attachments/assets/23adb82b-1ca0-4184-ae98-45fd43e70b9c)  
+I recommend to use 12V/24V Power Input                                                                                                  
 The picture shown below is the prototype of electrical system                                                                          
 ![WhatsApp Image 2024-05-07 at 17 25 49_dee94b2c](https://github.com/user-attachments/assets/2314d9c6-298e-4bae-92cd-adabcb910e99)
+
+The Specification of Motor DC:
+https://www.tokopedia.com/mri/motor-dc-pg45-180rpm-50kgfcm-60w-200ppr-encoder?extParam=src%3Dshop%26whid%3D316656
 
 # 3D Visualization
 The 3d Design is just sketch. I lost my file design, so i cannot preview the actual scale and all measurements.
@@ -99,3 +103,15 @@ The position robot can be controlled by using wheel odometry. Wheel odometry can
 
 # User Interface
 You can choose remote mode or autonomous mode for test wheel odometry control. If you choose remote mode, you need to connect robot with Joystick PS3 and then you can drive the robot. In autonomous mode you can setup the X,Y target position and run the robot drive to target.
+
+# Conclusion
+It's better to apply inverse kinematic to drive the robot because we don't have to set speed or PWM to each motors.
+I suggest for the next research and development:
+1. If you don't like the electrical system, you can remake it. Just design a compact PCB!
+2. Do not use encoder motor for position measurement because it's relative. Better use AS5600, its a absolute encoder and you need I2C peripheral for it
+3. If you want to use another type/specs motor, you need to check and calibrate your code especially in RPM measurement and PID Controller.
+4. The User Interface should have some function like display setting PID parameter, inverse kinematic Parameter, or maybe we can changing macaddress joystick. So we don't need to change the parameters by programming. The programming process in the future will only be carried out for maintenance purposes.
+5. Try to use MPU9250 to capture robot orientation data by Kalman Filter. Or you can merge the orientation data from wheel odometry and MP9250 with Complementary Filter.
+6. Make a Graphical User Interface (GUI) to track and control the trajectory
+7. Try to apply ROS on it.
+8. Visual Odometry(?), with Monocular/RGBD/Stereo Camera
