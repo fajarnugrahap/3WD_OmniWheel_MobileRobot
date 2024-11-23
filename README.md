@@ -102,7 +102,8 @@ The position robot can be controlled by using wheel odometry. Wheel odometry can
 ![WhatsApp Image 2024-07-18 at 16 58 15_7dd97819](https://github.com/user-attachments/assets/67050ef1-4a5e-4da8-aa99-b3fa5bd094d6)
 
 # User Interface
-You can choose remote mode or autonomous mode for test wheel odometry control. If you choose remote mode, you need to connect robot with Joystick PS3 and then you can drive the robot. In autonomous mode you can setup the X,Y target position and run the robot drive to target.
+You can choose remote mode or autonomous mode for test wheel odometry control. If you choose remote mode, you need to connect robot with Joystick PS3 and then you can drive the robot. In autonomous mode you can setup the X,Y target position and run the robot drive to target.                                                 
+![Screenshot 2024-11-02 230207](https://github.com/user-attachments/assets/9d34557f-8526-4796-8579-0cfee1b4ae90)
 
 # Conclusion
 It's better to apply inverse kinematic to drive the robot because we don't have to set speed or PWM to each motors.
